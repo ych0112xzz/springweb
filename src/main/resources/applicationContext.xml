@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.gtja.finance.bean" />
+
+    <bean id="screwDriver" class="com.gtja.finance.bean.ScrewDriver">
+    </bean>
+
+   <!-- <bean id="screwDriver" class="com.gtja.finance.bean.ScrewDriver" scope="singleton">
+        <constructor-arg>
+            <ref bean="header"></ref>
+        </constructor-arg>
+    </bean>-->
+<!--    <bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+        <constructor-arg name="color" value="red"></constructor-arg>
+        <constructor-arg name="size" value="1"></constructor-arg>
+
+    </bean>-->
+
+  <!--  <bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+        <constructor-arg>
+            <map>
+                <entry key="color" value="green"></entry>
+                <entry key="size" value="15"></entry>
+            </map>
+
+        </constructor-arg>
+
+    </bean>-->
+
+    <!--<bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+        <constructor-arg name="color" value="${color}"></constructor-arg>
+        <constructor-arg name="size" value="${size}"> </constructor-arg>
+    </bean>-->
+
+    <bean id="headerProperties"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:header.properties" />
+    </bean>
+
+</beans>
