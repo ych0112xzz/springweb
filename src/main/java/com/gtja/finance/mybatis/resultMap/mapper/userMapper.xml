@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gtja.finance.mybatis.resultMap.dao.UserOp">
+    <select id="getUser" parameterType="int" resultMap="userMap">
+        SELECT userId,u.userName,u.corp,c.id as courseId,c.courseName,t.id as teacherId,t.teacherName
+        from [user] u
+        left join userCourse uc
+        on u.id=uc.userId
+        left join course c
+        on uc.courseId=c.id
+        left join teacher t
+        on c.teacherId=t.id
+        where u.id=#{id}
+    </select>
+    <resultMap id="userMap" type="com.gtja.finance.mybatis.resultMap.pojo.User">
+        <constructor>
+            <idArg column="userId" javaType="int"/>
+            <arg column="userName" javaType="String"/>
+            <arg column="corp" javaType="String"/>
+        </constructor>
+        <collection property="courses" ofType="com.gtja.finance.mybatis.resultMap.pojo.Course">
+            <id property="id" column="courseId"/>
+            <result property="courseName" column="courseName"/>
+            <association property="teacher" javaType="com.gtja.finance.mybatis.resultMap.pojo.Teacher" column="teacherId">
+                <id property="id" column="teacherId"/>
+                <result property="teacherName" column="teacherName"/>
+            </association>
+
+        </collection>
+
+    </resultMap>
+</mapper>

@@ -9,18 +9,18 @@
     <bean id="screwDriver" class="com.gtja.finance.bean.ScrewDriver">
     </bean>
 
-   <!-- <bean id="screwDriver" class="com.gtja.finance.bean.ScrewDriver" scope="singleton">
+   <!-- <pojo id="screwDriver" class="com.gtja.finance.pojo.ScrewDriver" scope="singleton">
         <constructor-arg>
-            <ref bean="header"></ref>
+            <ref pojo="header"></ref>
         </constructor-arg>
-    </bean>-->
-<!--    <bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+    </pojo>-->
+<!--    <pojo id="header" class="com.gtja.finance.pojo.StraightHeader" scope="singleton">
         <constructor-arg name="color" value="red"></constructor-arg>
         <constructor-arg name="size" value="1"></constructor-arg>
 
-    </bean>-->
+    </pojo>-->
 
-  <!--  <bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+  <!--  <pojo id="header" class="com.gtja.finance.pojo.StraightHeader" scope="singleton">
         <constructor-arg>
             <map>
                 <entry key="color" value="green"></entry>
@@ -29,12 +29,12 @@
 
         </constructor-arg>
 
-    </bean>-->
+    </pojo>-->
 
-    <!--<bean id="header" class="com.gtja.finance.bean.StraightHeader" scope="singleton">
+    <!--<pojo id="header" class="com.gtja.finance.pojo.StraightHeader" scope="singleton">
         <constructor-arg name="color" value="${color}"></constructor-arg>
         <constructor-arg name="size" value="${size}"> </constructor-arg>
-    </bean>-->
+    </pojo>-->
 
     <bean id="headerProperties"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
